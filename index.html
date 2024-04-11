@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebAssembly</title>
+    <script src="func/prime_factor.js"></script> <!-- Load the wasm file -->
+    <script src="index.js"></script><!-- Load the JS file that uses the wasm file -->
+</head>
+<body>
+    <label for="Input">Enter number:</label>
+    <input type="text" id="Input" value="17">
+    <button onclick="generatePrimeNumbers()">Get prime numbers</button>
+    <p>Open the browser console to see logs from wasm</p>
+    <div id="printArrayResult"></div>
+</body>
+</html>
