@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="styles.css" />
     <script src="func/prime_factor.js"></script>
     <!-- Load the wasm file -->
-    <script src="index.js"></script>
+    <script src="index.js" type="module"></script>
     <!-- Load the JS file that uses the wasm file -->
   </head>
   <body>
@@ -15,8 +15,8 @@
 
     <section class="input-box">
       <input type="text" id="Input" value="17" />
-      <button onclick="generatePrimeNumbers()">Get prime factors</button>
-      <button id="changeLenguageBton" onclick="changeLenguage()">C/C++</button>
+      <button id="getPrimeNumbersButton">Get prime factors</button>
+      <button id="changeLanguageButton">Current: C/C++</button>
     </section>
 
     <p>The execution time was: <span id="time" class="time"></span></p>

@@ -1,38 +1,27 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <math.h>
 
-int* getPrimeFactors(int n) {
-
-    int* isPrime = (int*)malloc((n + 1) * sizeof(int));
-    int* primes = (int*)malloc((n + 1) * sizeof(int));
+long long* getPrimeFactors(long long n, int size) {
+    long long* primes = (long long*)malloc(size * sizeof(long long));
     int count = 0;
 
-    for (int i = 0; i <= n; i++) {
-        isPrime[i] = 1;
+    while (n % 2 == 0) {
+        primes[count++] = 2;
+        n = n / 2;
     }
-    isPrime[0] = 0;
-    isPrime[1] = 0;
 
-    for (int i = 2; i <= n; i++) {
-        if (isPrime[i]) {
+    for (long long i = 3; i <= sqrt(n); i = i + 2) {
+        while (n % i == 0) {
             primes[count++] = i;
-            for (int j = i + i; j <= n; j += i) {
-                isPrime[j] = 0;
-            }
+            n = n / i;
         }
     }
 
-    int* primeFactors = (int*)malloc((count + 1) * sizeof(int));
-    int c = 0;
-    for (int i = 0; i < count; i++) {
-        if (n % primes[i] == 0) {
-            primeFactors[c] = primes[i];
-            c++;
-            
-        }
-    }
+    if (n > 2) primes[count++] = n;
 
-    primeFactors[c] = -1;
-
-    return primeFactors;
+    primes[count] = -1;
+    return primes;
 }
+
+// https://www.geeksforgeeks.org/print-all-prime-factors-of-a-given-number/
