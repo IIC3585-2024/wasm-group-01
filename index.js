@@ -58,33 +58,36 @@ function generatePrimeNumbersInC() {
   executionTime.textContent = `${end - start} ms`;
 }
 
-function getPrimeFactorsJS(n) {
-  let isPrime = new Array(n + 1).fill(true);
+function getPrimeFactorsJSV2(n) {
   let primes = [];
-  let count = 0;
+  let primeFactors = [];
 
-  for (let i = 0; i <= n; i++) {
-    isPrime[i] = true;
-  }
-  isPrime[0] = false;
-  isPrime[1] = false;
-
-  for (let i = 2; i <= n; i++) {
-    if (isPrime[i]) {
-      primes[count++] = i;
-      for (let j = i + i; j <= n; j += i) {
-        isPrime[j] = false;
+  // Criba de Eratóstenes para encontrar todos los números primos hasta sqrt(n)
+  let sieve = new Array(Math.floor(Math.sqrt(n)) + 1).fill(true);
+  sieve[0] = false;
+  sieve[1] = false;
+  for (let i = 2; i * i <= Math.sqrt(n); i++) {
+    if (sieve[i]) {
+      for (let j = i * i; j < sieve.length; j += i) {
+        sieve[j] = false;
       }
     }
   }
 
-  let primeFactors = [];
-  let c = 0;
-  for (let i = 0; i < count; i++) {
-    if (n % primes[i] === 0) {
-      primeFactors[c] = primes[i];
-      c++;
+  // Recorre los números primos y encuentra los factores primos de n
+  for (let i = 2; i < sieve.length; i++) {
+    if (sieve[i]) {
+      primes.push(i);
+      while (n % i === 0) {
+        primeFactors.push(i);
+        n /= i;
+      }
     }
+  }
+
+  // Si queda algún factor primo mayor que la raíz cuadrada de n, es el último factor primo
+  if (n > 1) {
+    primeFactors.push(n);
   }
 
   return primeFactors;
@@ -96,7 +99,7 @@ function generatePrimeNumbersInJS() {
   const number = parseInt(input);
   console.log(`Number: ${number}`);
 
-  let resultArray = getPrimeFactorsJS(number);
+  let resultArray = getPrimeFactorsJSV2(number);
 
   const area = document.getElementById("results");
   area.textContent = resultArray;
