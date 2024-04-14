@@ -4,10 +4,20 @@ Esta tarea consiste en crear una función tanto en JavaScript como en otro lengu
 
 ## Instrucciones de ejecución
 
-1. Ejecute el siguiente comando para construir los módulos de WASM para C, con sus respectivas optimizaciones:
+1. Instale Emscripten y asigne las variables de entorno:
 ```bash
-chmod +x compile.sh # En caso de que el archivo bash no tenga permisos
+git clone https://github.com/emscripten-core/emsdk.git
+cd emsdk
+git pull
+./emsdk install latest
+./emsdk activate latest
+source ./emsdk_env.sh
+```
+
+2. Ejecute el siguiente comando para construir los módulos de WASM para C, con sus respectivas optimizaciones:
+```bash
+chmod +x compile.sh # En caso de que el archivo shell no tenga permisos
 ./compile.sh
 ```
 
-2. Abra el archivo **index.html**.
+3. Abra el archivo **index.html**.
