@@ -6,7 +6,7 @@ Esta tarea consiste en crear una función tanto en JavaScript como en otro lengu
 
 1. Ejecute el siguiente comando para construir los módulos de WASM para C, con sus respectivas optimizaciones:
 ```bash
-chmod -x compile.sh # En caso de que el archivo bash no tenga permisos
+chmod +x compile.sh # En caso de que el archivo bash no tenga permisos
 ./compile.sh
 ```
 
