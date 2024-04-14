@@ -5,23 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>WebAssembly</title>
     <link rel="stylesheet" href="styles.css" />
-    <script src="func/prime_factor.js"></script>
-    <!-- Load the wasm file -->
     <script src="index.js" type="module"></script>
-    <!-- Load the JS file that uses the wasm file -->
   </head>
   <body>
     <h1>Primes Finder</h1>
 
     <section class="input-box">
-      <input type="text" id="Input" value="17" />
+      <input type="text" id="input-number" value="551521512375256792" />
       <button id="getPrimeNumbersButton">Get prime factors</button>
-      <button id="changeLanguageButton">Current: C/C++</button>
     </section>
 
-    <p>The execution time was: <span id="time" class="time"></span></p>
-
-    <section id="results" class="results"></section>
+    <p>JavaScript - The execution time was: <span id="time-js" class="time"></span></p>
+    <section id="results-js" class="results"></section>
+    <p>C (No optimization) - The execution time was: <span id="time-co0" class="time"></span></p>
+    <section id="results-co0" class="results"></section>
+    <p>C (Lvl. 1 Optimization) - The execution time was: <span id="time-co1" class="time"></span></p>
+    <section id="results-co1" class="results"></section>
+    <p>C (Lvl. 2 Optimization) - The execution time was: <span id="time-co2" class="time"></span></p>
+    <section id="results-co2" class="results"></section>
+    <p>C (Lvl. 3 Optimization) - The execution time was: <span id="time-co3" class="time"></span></p>
+    <section id="results-co3" class="results"></section>
     <div id="printArrayResult"></div>
   </body>
 </html>

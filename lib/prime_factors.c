@@ -1,9 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
+#include <string.h>
+#include <stdint.h>
 #include <math.h>
 
-long long* getPrimeFactors(long long n, int size) {
-    long long* primes = (long long*)malloc(size * sizeof(long long));
+intmax_t* getPrimeFactors(intmax_t n, int size) {
+    intmax_t* primes = (intmax_t*)malloc(size * sizeof(intmax_t));
     int count = 0;
 
     while (n % 2 == 0) {
@@ -11,7 +14,7 @@ long long* getPrimeFactors(long long n, int size) {
         n = n / 2;
     }
 
-    for (long long i = 3; i <= sqrt(n); i = i + 2) {
+    for (intmax_t i = 3; i*i <= n; i = i + 2) {
         while (n % i == 0) {
             primes[count++] = i;
             n = n / i;
