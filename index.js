@@ -20,12 +20,12 @@ function showResultsFromLanguage(language) {
   let isNegative = false;
 
   try {
-    let input = Number(document.getElementById("input-number").value);
-    if (Number.isNaN(input) || !Number.isInteger(input)) throw new Error("Invalid input");
-    if (input === 0) throw new Error("Zero is not allowed");
+    let input = document.getElementById("input-number").value;
+    if (Number.isNaN(Number(input)) || !Number.isInteger(Number(input))) throw new Error("Invalid input");
+    if (Number(input) === 0) throw new Error("Zero is not allowed");
 
     if (input < 0) {
-      input *= -1;
+      input = input.replace("-", "");
       isNegative = true;
     }
 
