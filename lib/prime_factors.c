@@ -2,9 +2,9 @@
 #include <stdlib.h>
 #include <inttypes.h>
 
-long long* getPrimeFactors(char* number, int size) {
-    long long n = atoll(number);
-    long long* primes = (long long*)malloc(size * sizeof(long long));
+unsigned long long* getPrimeFactors(char* number, int size) {
+    unsigned long long n = atoll(number);
+    unsigned long long* primes = (unsigned long long*)malloc(size * sizeof(unsigned long long));
     int count = 0;
 
     while (n % 2 == 0) {
@@ -12,7 +12,7 @@ long long* getPrimeFactors(char* number, int size) {
         n = n / 2;
     }
 
-    for (long long i = 3; i*i <= n; i = i + 2) {
+    for (unsigned long long i = 3; i*i <= n; i = i + 2) {
         while (n % i == 0) {
             primes[count++] = i;
             n = n / i;
