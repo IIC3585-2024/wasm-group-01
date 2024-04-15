@@ -2,10 +2,6 @@
 
 Esta tarea consiste en crear una función tanto en JavaScript como en otro lenguaje externo, como C/C++, para luego importarlos a JS usando WebAssembly, para finalmente comparar el rendimiento de cada uno.
 
-## Consideraciones
-
-El máximo valor que se puede ingresar es el límite del tipo de número ``unsigned long long`` en C, que corresponde a ``18.446.744.073.709.551.615``. Pasado este valor, la función arroja resultados erroneos.
-
 ## Instrucciones de ejecución
 
 1. Instale Emscripten y asigne las variables de entorno:
