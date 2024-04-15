@@ -1010,6 +1010,7 @@ function createWasm() {
       }
       return (...args) => ccall(ident, returnType, argTypes, args, opts);
     };
+
 var wasmImports = {
   /** @export */
   emscripten_resize_heap: _emscripten_resize_heap
@@ -1027,6 +1028,7 @@ var _emscripten_stack_get_current = () => (_emscripten_stack_get_current = wasmE
 // === Auto-generated postamble setup entry stuff ===
 
 Module['cwrap'] = cwrap;
+Module['getValue'] = getValue;
 
 
 var calledRun;

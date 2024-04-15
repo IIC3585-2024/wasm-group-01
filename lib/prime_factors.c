@@ -1,19 +1,19 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <math.h>
 #include <inttypes.h>
 
-unsigned long long* getPrimeFactors(char* number, int size) {
-    unsigned long long n = atoll(number);
-    unsigned long long* primes = (unsigned long long*)malloc(size * sizeof(unsigned long long));
+double* getPrimeFactors(double n, int size) {
+    double* primes = (double*)malloc(size * sizeof(double));
     int count = 0;
 
-    while (n % 2 == 0) {
+    while (fmod(n, 2) == 0){
         primes[count++] = 2;
         n = n / 2;
     }
 
-    for (unsigned long long i = 3; i*i <= n; i = i + 2) {
-        while (n % i == 0) {
+    for (double i = 3; i*i <= n; i = i + 2) {
+        while (fmod(n, i) == 0) {
             primes[count++] = i;
             n = n / i;
         }

@@ -1331,6 +1331,7 @@ function dbg(...args) {
   var cwrap = (ident, returnType, argTypes, opts) => {
       return (...args) => ccall(ident, returnType, argTypes, args, opts);
     };
+
 function checkIncomingModuleAPI() {
   ignoredModuleProp('fetchSettings');
 }
@@ -1356,6 +1357,7 @@ var _emscripten_stack_get_current = () => (_emscripten_stack_get_current = wasmE
 // === Auto-generated postamble setup entry stuff ===
 
 Module['cwrap'] = cwrap;
+Module['getValue'] = getValue;
 var missingLibrarySymbols = [
   'writeI53ToI64',
   'writeI53ToI64Clamped',
@@ -1587,7 +1589,6 @@ var unexportedSymbols = [
   'freeTableIndexes',
   'functionsInTableMap',
   'setValue',
-  'getValue',
   'PATH',
   'PATH_FS',
   'UTF8Decoder',
